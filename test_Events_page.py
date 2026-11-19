@@ -26,8 +26,8 @@ def test_events_page_locators(events_page: Page):
     expect(page.get_by_role("heading", name="Upcoming Events")).to_be_visible()
 
     search = page.get_by_placeholder(re.compile("search", re.I))
-    category = page.locator("select").filter(has=page.locator("option[value='Conference']"))
-    city = page.locator("select").filter(has=page.locator("option[value='Hyderabad']"))
+  category = page.locator("select").filter(has_text="All Categories")
+city = page.locator("select").filter(has_text="All Cities")
 
     search.fill("World")
     category.select_option("Conference")
@@ -68,8 +68,8 @@ def test_events_page_locators(events_page: Page):
     expect(page.get_by_role("heading", name="Upcoming Events")).to_be_visible()
 
     search = page.get_by_placeholder(re.compile("search", re.I))
-    category = page.locator("select").filter(has=page.locator("option[value='Conference']"))
-    city = page.locator("select").filter(has=page.locator("option[value='Hyderabad']"))
+   category = page.locator("select").filter(has_text="All Categories")
+city = page.locator("select").filter(has_text="All Cities")
 
     search.fill("")
     category.select_option("")   # All Categories
